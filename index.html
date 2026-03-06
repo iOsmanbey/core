@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Medicore - Leading provider of Medical, Stomatology, Laboratory, and Surgery technologies. Bringing world-class innovation to healthcare providers.">
+    <title>Medicore | Medical, Stomatology, Laboratory & Surgery Technologies</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal-styles.css">
+
+    <!-- Icons (Phosphor Icons for a clean, modern look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" href="original.png" type="image/png">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="original.png" alt="Medicore Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="#products" data-i18n="nav_products">Products</a>
+                <a href="#news" data-i18n="nav_news">News</a>
+                <a href="#partners" data-i18n="nav_partners">Partners</a>
+            </div>
+            <div class="nav-actions">
+                <button id="lang-toggle" class="btn btn-sm btn-ghost">
+                    <i class="ph ph-globe"></i> <span id="current-lang">EN</span>
+                </button>
+                <a href="#contact" class="btn btn-primary" data-i18n="nav_quote">Request Quote</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge" data-i18n="hero_badge">MEDICAL & DENTAL SYSTEMS</span>
+                <h1><span class="highlight-blue" data-i18n="hero_title_prefix">Reliable Medical</span> <span
+                        class="gradient-text-pink" data-i18n="hero_title_suffix">Supply Chain</span></h1>
+                <p data-i18n="hero_desc">Ensuring timely delivery of critical equipment worldwide.</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn btn-primary" data-i18n="hero_btn_explore">Explore Catalog</a>
+                    <a href="#about" class="btn btn-light" data-i18n="hero_btn_network">Our Network</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="./Assets/intro 2.jpg" alt="Surgery Room" class="hero-main-img">
+                </div>
+
+                <div class="floating-card card-1">
+                    <div class="icon-box heart-icon">
+                        <i class="ph-fill ph-heartbeat"></i>
+                    </div>
+                    <div>
+                        <strong>99.9%</strong>
+                        <span data-i18n="stat_uptime">Service Reliability</span>
+                    </div>
+                </div>
+
+                <div class="floating-card card-2">
+                    <div class="icon-box globe-icon">
+                        <i class="ph-fill ph-globe-hemisphere-west"></i>
+                    </div>
+                    <div>
+                        <strong>50+</strong>
+                        <span data-i18n="stat_countries">Countries Served</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Products Showcase Section -->
+    <section class="featured-showcase">
+        <div class="container">
+            <!-- Background Elements -->
+            <div class="showcase-bg-circle c1"></div>
+            <div class="showcase-bg-circle c2"></div>
+
+            <div class="showcase-grid">
+                <!-- Product Card 1 -->
+                <div class="showcase-card" id="showcase-card-1">
+                    <div class="card-bg-gradient"></div>
+                    <div class="card-content">
+                        <span class="showcase-badge">Featured</span>
+                        <h3 class="showcase-title" id="showcase-title-1">AI-POWERED<br>DIAGNOSTIC HUB</h3>
+                        <span class="showcase-action">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="showcase-image">
+                        <img id="showcase-img-1" src="./Assets/diagnostic-hub.png" alt="Featured Product 1">
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="showcase-card" id="showcase-card-2">
+                    <div class="card-bg-gradient"></div>
+                    <div class="card-content">
+                        <span class="showcase-badge">Premium Selection</span>
+                        <h3 class="showcase-title" id="showcase-title-2">PORTABLE<br>ULTRASOUND<br>SCANNER</h3>
+                        <span class="showcase-action">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="showcase-image">
+                        <img id="showcase-img-2" src="./Assets/ultrasound.png" alt="Featured Product 2">
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="showcase-card" id="showcase-card-3">
+                    <div class="card-bg-gradient"></div>
+                    <div class="card-content">
+                        <span class="showcase-badge">Latest Tech</span>
+                        <h3 class="showcase-title" id="showcase-title-3">MRI<br>SCANNER</h3>
+                        <span class="showcase-action">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="showcase-image">
+                        <img id="showcase-img-3" src="./Assets/mri-scanner.png" alt="Featured Product 3">
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="showcase-card" id="showcase-card-4">
+                    <div class="card-bg-gradient"></div>
+                    <div class="card-content">
+                        <span class="showcase-badge">High Demand</span>
+                        <h3 class="showcase-title" id="showcase-title-4">X-RAY<br>SYSTEM</h3>
+                        <span class="showcase-action">Explore <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                    <div class="showcase-image">
+                        <img id="showcase-img-4" src="./Assets/xray-system.png" alt="Featured Product 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container grid-4">
+            <div class="stat-item">
+                <h3>10k+</h3>
+                <p data-i18n="stat_devices_dist">Devices Distributed</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p data-i18n="stat_hospital_partners">Hospital Partners</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p data-i18n="stat_support">Technical Support</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p data-i18n="stat_experience">Years Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container catalog-layout">
+            <div class="section-header" style="grid-column: 1 / -1;">
+                <h2 data-i18n="products_title">Our Product Categories</h2>
+                <p data-i18n="products_subtitle">Comprehensive medical solutions for efficient patient care.</p>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="catalog-sidebar">
+                <div class="sidebar-widget">
+                    <h3 data-i18n="products_categories">Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="active" data-filter="all"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_all">All Products</span></a></li>
+                        <li><a href="#" data-filter="medical"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_medical">Medical Technologies</span></a></li>
+                        <li><a href="#" data-filter="stomatology"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_stomatology">Stomatology Solutions</span></a></li>
+                        <li><a href="#" data-filter="surgery"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_surgery">Surgery Technologies</span></a></li>
+                        <li><a href="#" data-filter="laboratory"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_laboratory">Laboratory Equipment</span></a></li>
+                        <li><a href="#" data-filter="other"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_other">Other Equipment</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget new-arrivals-widget">
+                    <h3 data-i18n="products_new">New Arrivals</h3>
+                    <div id="new-arrivals-list" class="new-arrivals-list">
+                        <!-- Loaded by JS -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="catalog-content">
+                <div class="content-header">
+                    <h2 data-i18n="products_featured">Featured Products</h2>
+
+                    <div class="search-box" style="margin-right: auto; margin-left: 2rem;">
+                        <input type="text" id="product-search" placeholder="Search products..."
+                            style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    </div>
+
+                    <div class="sort-controls">
+                        <span data-i18n="products_sort">Sort by:</span>
+                        <select id="sort-select">
+                            <option value="default" data-i18n="products_latest">Latest</option>
+                            <option value="name-asc" data-i18n="products_name_az">Name (A-Z)</option>
+                            <option value="name-desc" data-i18n="products_name_za">Name (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid compact-grid" id="product-grid">
+                    <!-- Products will be dynamically loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <div class="section-header center-text">
+                <h2 data-i18n="news_title">Latest News & Insights</h2>
+                <p data-i18n="news_subtitle">Stay updated with the latest trends in medical technology.</p>
+            </div>
+            <div id="news-grid" class="news-grid grid-3">
+                <!-- Dynamic News Items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners-section" style="padding: 4rem 0; background: var(--bg-alt);">
+        <div class="container">
+            <div class="section-header center-text">
+                <h2 data-i18n="nav_partners" style="font-size: 2.5rem; margin-bottom: 1rem;">Partners</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Working with global leaders in medical
+                    technology</p>
+            </div>
+            <div class="partners-grid"
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; opacity: 0.6; min-height: 100px;">
+                <h3 style="color: var(--text-secondary);">Partner logos will be displayed here</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 data-i18n="cta_title">Ready to Upgrade Your Medical Infrastructure?</h2>
+                    <p data-i18n="cta_desc">Get in touch with our specialists for a catalog consultation and
+                        personalized quote.</p>
+
+                    <div id="contact-info-dynamic"
+                        style="margin-top: 1.5rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                        <span id="contact-phone"><i class="ph-fill ph-phone"></i> +1 (555) 000-0000</span>
+                        <span id="contact-email"><i class="ph-fill ph-envelope"></i> info@medicore.com</span>
+                        <span id="contact-address" style="display: none;"><i class="ph-fill ph-map-pin"></i>
+                            <span></span></span>
+                    </div>
+                </div>
+                <form class="cta-form" onsubmit="handleContactSubmit(event);">
+                    <input type="email" id="contact-email-input" placeholder="Enter your work email" required>
+                    <button type="submit" class="btn btn-light" data-i18n="btn_get_started">Get Started</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="original.png" alt="Medicore Logo" class="logo-img">
+                </a>
+                <p data-i18n="footer_tagline">Supplying excellence in healthcare technology since 2010.</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer_company">Company</h4>
+                <ul>
+                    <li><a href="#" data-i18n="nav_about">About</a></li>
+                    <li><a href="#" data-i18n="footer_careers">Careers</a></li>
+                    <li><a href="#" data-i18n="footer_press">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer_support">Support</h4>
+                <ul>
+                    <li><a href="#" data-i18n="footer_contact">Contact Support</a></li>
+                    <li><a href="#" data-i18n="footer_docs">Documentation</a></li>
+                    <li><a href="#" data-i18n="footer_warranty">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4 data-i18n="footer_connect">Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-facebook-logo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2024 Medicore Supplier Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Article Detail Modal -->
+    <div class="modal" id="articleModal">
+        <div class="modal-content article-content">
+            <div class="modal-header">
+                <div><!-- Spacer --></div>
+                <button class="action-btn" onclick="document.getElementById('articleModal').classList.remove('open')"><i
+                        class="ph ph-x" style="font-size: 1.5rem;"></i></button>
+            </div>
+            <div id="article-modal-body">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Product Details Modal -->
+    <div id="product-details-modal" class="modal">
+        <div class="modal-content product-modal-content">
+            <span class="modal-close"
+                onclick="document.getElementById('product-details-modal').classList.remove('active')">&times;</span>
+            <div class="product-modal-header">
+                <img id="modal-product-image" src="" alt="Product">
+                <div class="product-modal-info">
+                    <span id="modal-product-badge" class="product-badge">NEW</span>
+                    <h2 id="modal-product-name">Product Name</h2>
+                    <p id="modal-product-model" class="product-model">Model: XXX-000</p>
+                    <p id="modal-product-price" class="product-price">$0,000</p>
+                    <div class="product-stock">
+                        <i class="ph-fill ph-check-circle"></i>
+                        <span id="modal-product-stock" data-i18n="modal_stock">In Stock</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-modal-body">
+                <div class="product-section">
+                    <h3><i class="ph-duotone ph-info"></i> <span data-i18n="modal_description">Description</span></h3>
+                    <p id="modal-product-description"></p>
+                </div>
+
+                <div class="product-section">
+                    <h3><i class="ph-duotone ph-list-checks"></i> <span data-i18n="modal_features">Features</span></h3>
+                    <ul id="modal-product-features" class="features-list"></ul>
+                </div>
+
+                <div class="product-section">
+                    <h3><i class="ph-duotone ph-gear"></i> <span data-i18n="modal_specs">Technical Specifications</span>
+                    </h3>
+                    <table id="modal-product-specs" class="specs-table"></table>
+                </div>
+
+                <div class="product-modal-actions">
+                    <button class="btn-primary" onclick="requestQuote()">
+                        <i class="ph-fill ph-envelope"></i> <span data-i18n="nav_quote">Request Quote</span>
+                    </button>
+                    <button class="btn-secondary" onclick="window.location.href='#contact'">
+                        <i class="ph-fill ph-phone"></i> <span data-i18n="btn_contact_sales">Contact Sales</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="visual-effects.js"></script>
+    <script src="i18n.js"></script>
+    <script src="product-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

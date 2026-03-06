@@ -1,0 +1,492 @@
+[
+    {
+        "id": "prod-001",
+        "model": "DR-X500",
+        "category": "medical",
+        "image": "./Assets/xray-system.png",
+        "isNew": true,
+        "name": {
+            "en": "Digital X-Ray System",
+            "ru": "Цифровая рентгеновская система",
+            "uz": "Raqamli rentgen tizimi"
+        },
+        "description": {
+            "en": "High-resolution digital radiography with wireless flat panel detector",
+            "ru": "Цифровая рентгенография высокого разрешения с беспроводным плоскопанельным детектором",
+            "uz": "Simsiz tekis panel detektori bilan yuqori aniqlikdagi raqamli rentgenografiya"
+        },
+        "price": "Contact for Quote",
+        "features": {
+            "en": ["Wireless flat panel detector", "High-resolution imaging up to 4K", "Real-time preview", "Patient dose optimization", "Mobile C-arm support"],
+            "ru": ["Беспроводный плоскопанельный детектор", "Высокое разрешение до 4K", "Предпросмотр в реальном времени", "Оптимизация дозы для пациентов", "Поддержка мобильного С-дуга"],
+            "uz": ["Simsiz tekis panel detektori", "4K gacha yuqori aniqlik", "Real vaqtli ko'rishtirib chiqish", "Bemor doza optimallashtirishi", "Mobil S-qol qo'llab-quvvatlash"]
+        },
+        "specifications": {
+            "en": {
+                "Detector Size": "43 x 43 cm",
+                "Resolution": "4K (4096 x 4096 pixels)",
+                "Dose Rate": "Low dose DR technology",
+                "Connectivity": "Wireless connectivity",
+                "Power": "220V, 50-60 Hz",
+                "Weight": "45 kg"
+            },
+            "ru": {
+                "Размер детектора": "43 x 43 см",
+                "Разрешение": "4K (4096 x 4096 пиксели)",
+                "Скорость дозы": "Низкая доза DR технология",
+                "Подключение": "Беспроводное подключение",
+                "Питание": "220V, 50-60 Гц",
+                "Вес": "45 кг"
+            },
+            "uz": {
+                "Detektori hajmi": "43 x 43 sm",
+                "Aniqlik": "4K (4096 x 4096 piksel)",
+                "Doza tezligi": "Kam doza DR texnologiyasi",
+                "Ulanish": "Simsiz ulanish",
+                "Quvvat": "220V, 50-60 Gc",
+                "Og'irlik": "45 kg"
+            }
+        }
+    },
+    {
+        "id": "prod-002",
+        "model": "CT-1000",
+        "category": "medical",
+        "image": "./Assets/ct-scanner.png",
+        "isNew": false,
+        "name": {
+            "en": "CT Scanner",
+            "ru": "Компьютерный томограф",
+            "uz": "Kompyuter tomografiya"
+        },
+        "description": {
+            "en": "64-slice computed tomography scanner with advanced imaging capabilities",
+            "ru": "64-срезовый компьютерный томограф",
+            "uz": "Ilg'or tasvirlash imkoniyatlariga ega 64 qatlamli kompyuter tomografiya"
+        },
+        "price": "Contact for Quote",
+        "features": {
+            "en": ["64-slice acquisition", "Dual-energy imaging", "Advanced dose reduction", "Multi-planar reconstruction", "AI-powered analysis"],
+            "ru": ["64-срезная съемка", "Двухэнергетическая визуализация", "Продвинутое снижение дозы", "Многоплоскостная реконструкция", "Анализ на основе ИИ"],
+            "uz": ["64-qatlamli olish", "Ikki-energiya tasvirlash", "Ilg'or doza kamayishi", "Ko'p tekislikli qayta tuzish", "AI-asoslangan tahlil"]
+        },
+        "specifications": {
+            "en": {
+                "Slices": "64 slices",
+                "Rotation Time": "0.5 seconds",
+                "Max Dose": "Ultra-low dose mode",
+                "Reconstruction": "Real-time 3D",
+                "Field of View": "50 cm",
+                "Power Consumption": "8 kW"
+            },
+            "ru": {
+                "Срезы": "64 среза",
+                "Время вращения": "0,5 секунды",
+                "Максимальная доза": "Режим ультранизкой дозы",
+                "Реконструкция": "Реальное время 3D",
+                "Поле зрения": "50 см",
+                "Потребление мощности": "8 кВт"
+            },
+            "uz": {
+                "Qatlamlar": "64 qatlam",
+                "Aylanish vaqti": "0,5 sekund",
+                "Maksimal doza": "Ultra-kam doza rejimi",
+                "Qayta tuzish": "Real vaqtda 3D",
+                "Ko'rish maydonı": "50 sm",
+                "Quvvat isteъmoli": "8 kVt"
+            }
+        }
+    },
+    {
+        "id": "prod-003",
+        "model": "MRI-3000",
+        "category": "medical",
+        "image": "./Assets/mri-scanner.png",
+        "isNew": true,
+        "name": {
+            "en": "MRI Scanner",
+            "ru": "МРТ сканер",
+            "uz": "MRT skaneri"
+        },
+        "description": {
+            "en": "1.5T Magnetic Resonance Imaging system",
+            "ru": "МРТ система 1.5 Тесла",
+            "uz": "1.5T Magnit-rezonans tomografiya tizimi"
+        },
+        "price": "Contact for Quote",
+        "features": {
+            "en": ["1.5T magnetic field", "Silent scanning mode", "Advanced diffusion imaging", "Real-time cardiac imaging", "Pediatric-friendly design"],
+            "ru": ["Магнитное поле 1,5Т", "Режим тихого сканирования", "Продвинутая диффузионная визуализация", "Визуализация сердца в реальном времени", "Дружелюбный дизайн для детей"],
+            "uz": ["1,5T magnit maydoni", "Jim skanerlash rejimi", "Ilg'or diffuziya tasvirlash", "Real vaqtda yurak tasvirlash", "Bolalar uchun qulay dizayn"]
+        },
+        "specifications": {
+            "en": {
+                "Field Strength": "1.5 Tesla",
+                "Bore Diameter": "70 cm",
+                "Gradient Strength": "45 mT/m",
+                "Slew Rate": "200 T/m/s",
+                "Cooling": "Helium-free technology",
+                "Noise Level": "<75 dB"
+            },
+            "ru": {
+                "Напряженность поля": "1,5 Тесла",
+                "Диаметр скважины": "70 см",
+                "Напряженность градиента": "45 мТ/м",
+                "Скорость нарастания": "200 Т/м/с",
+                "Охлаждение": "Технология без гелия",
+                "Уровень шума": "<75 дБ"
+            },
+            "uz": {
+                "Maydon kuchi": "1,5 Tesla",
+                "Teshik diametri": "70 sm",
+                "Gradiyent kuchi": "45 mT/m",
+                "Keyish tezligi": "200 T/m/s",
+                "Sovitish": "Geliy-free texnologiyasi",
+                "Shovqin darajasi": "<75 dB"
+            }
+        }
+    },
+    {
+        "id": "prod-004",
+        "model": "ECG-500",
+        "category": "medical",
+        "image": "./Assets/ecg-machine.png",
+        "isNew": false,
+        "name": {
+            "en": "ECG Machine",
+            "ru": "ЭКГ аппарат",
+            "uz": "EKG apparati"
+        },
+        "description": {
+            "en": "12-lead electrocardiograph with touchscreen display",
+            "ru": "12-канальный электрокардиограф",
+            "uz": "12 kanalli elektrokardiograf"
+        },
+        "price": 3500,
+        "features": {
+            "en": ["12-lead simultaneous recording", "Touchscreen interface", "Automatic interpretation", "Wireless connectivity", "Battery backup up to 8 hours"],
+            "ru": ["Одновременная 12-отводная запись", "Сенсорный интерфейс", "Автоматическая интерпретация", "Беспроводное подключение", "Резервная батарея до 8 часов"],
+            "uz": ["12-tarmoqli bir vaqtda yozuv", "Sensorli interfeys", "Avtomatik tafsir", "Simsiz ulanish", "8 soatgacha batareya zaxirasi"]
+        },
+        "specifications": {
+            "en": {
+                "Channels": "12-lead simultaneous",
+                "Sampling Rate": "1000 Hz",
+                "Display": "7\" touchscreen",
+                "Interpretation": "AI-based algorithm",
+                "Storage": "5000 records",
+                "Battery": "Lithium-ion 8h backup"
+            },
+            "ru": {
+                "Каналы": "12-отводная одновременно",
+                "Частота выборки": "1000 Гц",
+                "Дисплей": "7\" сенсорный экран",
+                "Интерпретация": "ИИ алгоритм",
+                "Хранилище": "5000 записей",
+                "Батарея": "Li-ion 8ч резерв"
+            },
+            "uz": {
+                "Kanallar": "12-tarmoqli bir vaqtda",
+                "Nümunelash tezligi": "1000 Gc",
+                "Displey": "7\" sensorli ekran",
+                "Tafsir": "AI algoritmi",
+                "Saqlash": "5000 yozuv",
+                "Batareya": "Li-ion 8s zaxira"
+            }
+        }
+    },
+    {
+        "id": "prod-005",
+        "model": "VS-800",
+        "category": "medical",
+        "image": "./Assets/vital-monitor.png",
+        "isNew": false,
+        "name": {
+            "en": "Vital Sign Monitor",
+            "ru": "Монитор пациента",
+            "uz": "Bemor monitori"
+        },
+        "description": {
+            "en": "Multiparameter patient monitor with 12.1\" touchscreen display.",
+            "ru": "Мультипараметрический монитор пациента с дисплеем 12.1\".",
+            "uz": "12.1\" sensorli ekranli ko'p parametrli bemor monitori."
+        },
+        "price": 1200,
+        "features": {
+            "en": ["Multiparameter monitoring", "12.1\" large display", "Wireless transmission", "Battery standby up to 48 hours", "Multiple bed support"],
+            "ru": ["Мультипараметрический мониторинг", "Большой дисплей 12,1\"", "Беспроводная передача", "Резервная батарея до 48 часов", "Поддержка нескольких коек"],
+            "uz": ["Ko'p parametrli monitoring", "12,1\" katta displey", "Simsiz uzatish", "48 soatgacha batareya standby", "Ko'p to'shakka qo'llab-quvvatlash"]
+        },
+        "specifications": {
+            "en": {
+                "Display": "12.1\" TFT color",
+                "Parameters": "ECG, SpO2, BP, Temp, Resp",
+                "Sampling": "1000 Hz ECG",
+                "Memory": "Continuous 72-hour recording",
+                "Battery": "Li-ion up to 48h",
+                "Weight": "8 kg"
+            },
+            "ru": {
+                "Дисплей": "12,1\" TFT цветной",
+                "Параметры": "ЭКГ, SpO2, АД, Темп, Дых",
+                "Выборка": "1000 Гц ЭКГ",
+                "Память": "Непрерывная 72-часовая запись",
+                "Батарея": "Li-ion до 48ч",
+                "Вес": "8 кг"
+            },
+            "uz": {
+                "Displey": "12,1\" TFT rangli",
+                "Parametrlar": "EKG, SpO2, BP, Harorat, Resp",
+                "Nümunelash": "1000 Gc EKG",
+                "Xotira": "Doimiy 72-soatlik yozuv",
+                "Batareya": "Li-ion 48soatgacha",
+                "Og'irlik": "8 kg"
+            }
+        }
+    },
+    {
+        "id": "prod-006",
+        "model": "SR-2000",
+        "category": "surgery",
+        "image": "./Assets/surgical-robot.png",
+        "isNew": true,
+        "name": {
+            "en": "Surgical Robot Arm",
+            "ru": "Хирургический робот",
+            "uz": "Jarrohlik roboti"
+        },
+        "description": {
+            "en": "Precision robotic assistance for minimally invasive laparoscopic procedures.",
+            "ru": "Роботизированная система для малоинвазивной хирургии.",
+            "uz": "Minimal invaziv laparoskopik muolajalar uchun robot yordamchisi."
+        },
+        "price": "Contact for Quote",
+        "features": {
+            "en": ["7-DOF robotic arm", "HD camera with 10x zoom", "Tremor filtering technology", "Real-time surgeon control", "Telesurgery capable"],
+            "ru": ["7-DOF роботизированная рука", "HD камера с 10x зумом", "Технология фильтрации дрожания", "Управление хирургом в реальном времени", "Возможность телехирургии"],
+            "uz": ["7-DOF robot qol", "10x zum bilan HD kamera", "Titresh filtrlash texnologiyasi", "Real vaqtda jarrah nazorati", "Telehirurgiya qobiliyati"]
+        },
+        "specifications": {
+            "en": {
+                "Degrees of Freedom": "7 axes",
+                "Reach": "400 mm",
+                "Positioning Accuracy": "±0.5 mm",
+                "Camera": "Full HD 1080p, 10x zoom",
+                "Response Time": "<100 ms",
+                "Power": "110-240V, 50-60Hz"
+            },
+            "ru": {
+                "Степени свободы": "7 осей",
+                "Досяг": "400 мм",
+                "Точность позиционирования": "±0,5 мм",
+                "Камера": "Full HD 1080p, 10x зум",
+                "Время отклика": "<100 мс",
+                "Питание": "110-240V, 50-60Гц"
+            },
+            "uz": {
+                "Ozodlik darajalari": "7 o'q",
+                "Ulanish": "400 mm",
+                "Joylashtirishning aniqlik": "±0,5 mm",
+                "Kamera": "Full HD 1080p, 10x zoom",
+                "Javob vaqti": "<100 ms",
+                "Quvvat": "110-240V, 50-60Gc"
+            }
+        }
+    },
+    {
+        "id": "prod-007",
+        "model": "HA-300",
+        "category": "laboratory",
+        "image": "./Assets/hematology-analyzer.png",
+        "isNew": false,
+        "name": {
+            "en": "Hematology Analyzer",
+            "ru": "Гематологический анализатор",
+            "uz": "Gematologiya analizatori"
+        },
+        "description": {
+            "en": "Automated 5-part differential hematology analyzer for high-volume labs.",
+            "ru": "Автоматический гематологический анализатор (5 diff).",
+            "uz": "Katta hajmli laboratoriyalar uchun avtomatlashtirilgan gematologik tahlilchi."
+        },
+        "price": 8500,
+        "features": {
+            "en": ["5-part differential", "Automatic sample loader", "High throughput 60 samples/hour", "Built-in quality control", "Data management software"],
+            "ru": ["5-компонентная дифференциация", "Автоматический загрузчик образцов", "Высокая производительность 60 образцов/час", "Встроенный контроль качества", "Программное обеспечение управления данными"],
+            "uz": ["5-qismli differensiatsiya", "Avtomatik namunaviy yuklagich", "Yuqori mahsulotlilik 60 namuna/soat", "O'rnatilgan sifat nazorati", "Ma'lumotlarni boshqarish dasturi"]
+        },
+        "specifications": {
+            "en": {
+                "Sample Throughput": "60 samples/hour",
+                "Differentials": "5-part WBC diff",
+                "Sample Volume": "15 µL",
+                "Accuracy": ">98%",
+                "Storage": "1000 records",
+                "Footprint": "45 x 60 x 50 cm"
+            },
+            "ru": {
+                "Пропускная способность": "60 образцов/час",
+                "Дифференциал": "5-частный WBC diff",
+                "Объем образца": "15 µL",
+                "Точность": ">98%",
+                "Хранилище": "1000 записей",
+                "Площадь": "45 x 60 x 50 см"
+            },
+            "uz": {
+                "Namuna produktivligi": "60 namuna/soat",
+                "Differensial": "5-qism WBC diff",
+                "Namuna hajmi": "15 µL",
+                "Aniqlik": ">98%",
+                "Saqlash": "1000 yozuv",
+                "Taglik": "45 x 60 x 50 sm"
+            }
+        }
+    },
+    {
+        "id": "prod-008",
+        "model": "EB-900",
+        "category": "other",
+        "image": "./Assets/icu-bed.png",
+        "isNew": false,
+        "name": {
+            "en": "ICU Electric Bed",
+            "ru": "Кровать реанимационная",
+            "uz": "Reanimatsiya karavoti"
+        },
+        "description": {
+            "en": "Fully adjustable electric hospital bed with integrated weighing scale.",
+            "ru": "Электрическая больничная кровать с весами.",
+            "uz": "O'lchov tarozisi bilan to'liq sozlanadigan elektr shifoxona karavoti."
+        },
+        "price": 2800,
+        "features": {
+            "en": ["Electric height adjustment", "Integrated weighing scale", "Backrest and legrest tilt", "Safety railings included", "Easy-clean mattress"],
+            "ru": ["Электрическая регулировка высоты", "Интегрированный весовой датчик", "Наклон спинки и подножки", "Включены защитные перила", "Легкая очистка матраца"],
+            "uz": ["Elektr balandlik sozlamasi", "Integrallashtirilgan og'irlik ko'rsatkichi", "Orting va oyoq tilishining egilishi", "Xavfsizlik railsalari kiritilgan", "Oson toza maraton"]
+        },
+        "specifications": {
+            "en": {
+                "Height Adjustment": "Electric with memory",
+                "Weight Capacity": "200 kg",
+                "Mattress Size": "90 x 200 cm",
+                "Weighing Scale": "Digital, ±0.5 kg accuracy",
+                "Power": "220V, 50-60Hz",
+                "Wheels": "Locking castor wheels"
+            },
+            "ru": {
+                "Регулировка высоты": "Электрическая с памятью",
+                "Грузоподъемность": "200 кг",
+                "Размер матраца": "90 x 200 см",
+                "Весовая шкала": "Цифровая, ±0,5 кг точность",
+                "Питание": "220V, 50-60Гц",
+                "Колеса": "Блокирующиеся колеса"
+            },
+            "uz": {
+                "Balandlik sozlamasi": "Xotirali elektr",
+                "Og'irlik quvvati": "200 kg",
+                "Maraton hajmi": "90 x 200 sm",
+                "Og'irlik shkalasi": "Raqamli, ±0,5 kg aniqlik",
+                "Quvvat": "220V, 50-60Gc",
+                "G'ildiraklar": "Bloklanuvchi g'ildirak"
+            }
+        }
+    },
+    {
+        "id": "prod-009",
+        "model": "IR-50",
+        "category": "medical",
+        "image": "",
+        "isNew": false,
+        "name": {
+            "en": "Infrared Thermometer",
+            "ru": "Инфракрасный термометр",
+            "uz": "Infraqizil termometr"
+        },
+        "description": {
+            "en": "Contactless clinical thermometer with 1-second response time.",
+            "ru": "Бесконтактный клинический термометр.",
+            "uz": "1 soniyada javob beruvchi kontaktsiz tibbiy termometr."
+        },
+        "price": 45,
+        "features": {
+            "en": ["Contactless measurement", "1-second response", "Memory of last 10 readings", "Fever alarm", "Auto power-off"],
+            "ru": ["Бесконтактное измерение", "Ответ за 1 секунду", "Память последних 10 показаний", "Сигнал лихорадки", "Автоматическое отключение"],
+            "uz": ["Kontaktsiz o'lchov", "1 sekund javob", "Oxirgi 10 ta o'lchovlarning xotirasi", "Isitma signali", "Avtomatik o'chirish"]
+        },
+        "specifications": {
+            "en": {
+                "Range": "34-42.2°C",
+                "Accuracy": "±0.1°C",
+                "Response Time": "1 second",
+                "Memory": "Last 10 readings",
+                "Display": "LCD, white backlight",
+                "Power": "2x AAA batteries"
+            },
+            "ru": {
+                "Диапазон": "34-42,2°C",
+                "Точность": "±0,1°C",
+                "Время ответа": "1 секунда",
+                "Память": "Последние 10 показаний",
+                "Дисплей": "ЖКД, белая подсветка",
+                "Питание": "2х AAA батареи"
+            },
+            "uz": {
+                "Diapazon": "34-42,2°C",
+                "Aniqlik": "±0,1°C",
+                "Javob vaqti": "1 sekund",
+                "Xotira": "Oxirgi 10 ta o'lchov",
+                "Displey": "LCD, oq yoritgich",
+                "Quvvat": "2x AAA batareya"
+            }
+        }
+    },
+    {
+        "id": "prod-010",
+        "model": "DC-PRO",
+        "category": "stomatology",
+        "image": "",
+        "isNew": true,
+        "name": {
+            "en": "Dental Chair Pro",
+            "ru": "Стоматологическое кресло Про",
+            "uz": "Stomatologik kreslo Pro"
+        },
+        "description": {
+            "en": "Electric dental chair with LED light and touchscreen control panel.",
+            "ru": "Электрическое стоматологическое кресло с LED-подсветкой и сенсорной панелью управления.",
+            "uz": "LED yoritgich va sensorli boshqaruv paneli bilan elektr stomatologik kreslo."
+        },
+        "price": 4500,
+        "features": {
+            "en": ["Electric height adjustment", "Integrated LED light", "Touchscreen control", "Memory presets", "Foot-controlled suspension"],
+            "ru": ["Электрическая регулировка высоты", "Интегрированное светодиодное освещение", "Сенсорное управление", "Предустановки памяти", "Ножное управление подвеской"],
+            "uz": ["Elektr balandlik sozlamasi", "Integrallashtirilgan LED yoritgich", "Sensorli nazorat", "Xotira presetlari", "Oyoq boshqarilgan osilish"]
+        },
+        "specifications": {
+            "en": {
+                "Height Adjustment": "Electric, smooth operation",
+                "Backrest Tilt": "0-90 degrees",
+                "Light Intensity": "Adjustable LED, 2500-6000K",
+                "Seat Width": "50 cm",
+                "Weight Capacity": "150 kg",
+                "Material": "Medical grade upholstery"
+            },
+            "ru": {
+                "Регулировка высоты": "Электрическая, плавная работа",
+                "Наклон спинки": "0-90 градусов",
+                "Интенсивность света": "Регулируемый LED, 2500-6000K",
+                "Ширина сиденья": "50 см",
+                "Грузоподъемность": "150 кг",
+                "Материал": "Медицинская обивка"
+            },
+            "uz": {
+                "Balandlik sozlamasi": "Elektr, silliq ishlash",
+                "Orting egilishi": "0-90 gradus",
+                "Nur intensivligi": "Sozlanadigan LED, 2500-6000K",
+                "O'tish kengligi": "50 sm",
+                "Og'irlik quvvati": "150 kg",
+                "Material": "Tibbiy obivka"
+            }
+        }
+    }
+]

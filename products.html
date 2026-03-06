@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Medicore Product Catalog - Browse our extensive range of medical devices and hospital equipment.">
+    <title>Products | Medicore</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal-styles.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="original.png" alt="Medicore Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#products" data-i18n="nav_products">Products</a>
+                <a href="index.html#solutions" data-i18n="nav_solutions">Solutions</a>
+                <a href="index.html#about" data-i18n="nav_about">About Us</a>
+                <a href="index.html#partners" data-i18n="nav_partners">Partners</a>
+            </div>
+            <div class="nav-actions">
+                <button id="lang-toggle" class="btn btn-sm btn-ghost">
+                    <i class="ph ph-globe"></i> <span id="current-lang">EN</span>
+                </button>
+                <a href="index.html#contact" class="btn btn-primary" data-i18n="nav_quote">Request Quote</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+
+
+    <!-- Main Catalog Layout -->
+    <section class="main-catalog">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs">
+                <a href="index.html" data-i18n="breadcrumb_home">Materials</a>
+                <i class="ph ph-caret-right"></i>
+                <span id="current-category-breadcrumb" data-i18n="products_all">All Products</span>
+            </div>
+
+            <!-- Category Detail View (Hidden by default) -->
+            <div id="category-detail-view" class="category-detail-view hidden">
+                <div class="category-header">
+                    <div class="category-image">
+                        <img id="cat-header-img" src="./Assets/Intro.jpg" alt="Category Image">
+                    </div>
+                    <div class="category-info">
+                        <h1 id="cat-header-title" data-i18n="products_all">All Products</h1>
+                        <p id="cat-header-desc">Explore our full range of medical excellence.</p>
+                    </div>
+                </div>
+                <div class="subcategory-title-strip">
+                    <h2 data-i18n="subcategories">Subcategories</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container catalog-layout">
+            <!-- Sidebar -->
+            <aside class="catalog-sidebar">
+                <div class="sidebar-widget">
+                    <h3 data-i18n="products_categories">Categories</h3>
+                    <ul class="category-list">
+                        <li><a href="#" class="active" data-filter="all"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_all">All Products</span></a></li>
+                        <li><a href="#" data-filter="medical"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_medical">Medical Technologies</span></a></li>
+                        <li><a href="#" data-filter="stomatology"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_stomatology">Stomatology Solutions</span></a></li>
+                        <li><a href="#" data-filter="surgery"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_surgery">Surgery Technologies</span></a></li>
+                        <li><a href="#" data-filter="laboratory"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_laboratory">Laboratory Equipment</span></a></li>
+                        <li><a href="#" data-filter="other"><i class="ph ph-caret-right"></i> <span
+                                    data-i18n="products_other">Other Equipment</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget new-arrivals-widget">
+                    <h3 data-i18n="products_new">New Arrivals</h3>
+                    <div id="new-arrivals-list" class="new-arrivals-list">
+                        <!-- Loaded by JS -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="catalog-content">
+                <div class="content-header">
+                    <h2 data-i18n="products_featured">Featured Products</h2>
+
+                    <div class="search-box" style="margin-right: auto; margin-left: 2rem;">
+                        <input type="text" id="product-search" placeholder="Search products..."
+                            style="padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+                    </div>
+
+                    <div class="sort-controls">
+                        <span data-i18n="products_sort">Sort by:</span>
+                        <select id="sort-select">
+                            <option value="default" data-i18n="products_latest">Latest</option>
+                            <option value="name-asc" data-i18n="products_name_az">Name (A-Z)</option>
+                            <option value="name-desc" data-i18n="products_name_za">Name (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid compact-grid" id="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card catalog-card" data-category="medical" data-name="Digital X-Ray System">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-scan"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Digital X-Ray System</h3>
+                            <p class="model">Model: DR-X500</p>
+                            <p class="desc">High-resolution digital radiography with wireless flat panel detector.</p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_medical">Medical Technologies</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card catalog-card" data-category="medical" data-name="Vital Sign Monitor">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-monitor"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Vital Sign Monitor</h3>
+                            <p class="model">Model: VS-800</p>
+                            <p class="desc">Multiparameter patient monitor with 12.1" touchscreen display.</p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_medical">Medical Technologies</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card catalog-card" data-category="surgery" data-name="Surgical Robot Arm">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-scissors"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Surgical Robot Arm</h3>
+                            <p class="model">Model: SR-2000</p>
+                            <p class="desc">Precision robotic assistance for minimally invasive laparoscopic procedures.
+                            </p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_surgery">Surgery Technologies</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card catalog-card" data-category="laboratory" data-name="Hematology Analyzer">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-dna"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Hematology Analyzer</h3>
+                            <p class="model">Model: HA-300</p>
+                            <p class="desc">Automated 5-part differential hematology analyzer for high-volume labs.</p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_laboratory">Laboratory Equipment</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card catalog-card" data-category="other" data-name="ICU Electric Bed">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-bed"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>ICU Electric Bed</h3>
+                            <p class="model">Model: EB-900</p>
+                            <p class="desc">Fully adjustable electric hospital bed with integrated weighing scale.</p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_other">Other Equipment</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card catalog-card" data-category="medical" data-name="Infrared Thermometer">
+                        <div class="card-image-placeholder">
+                            <i class="ph-duotone ph-thermometer"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3>Infrared Thermometer</h3>
+                            <p class="model">Model: IR-50</p>
+                            <p class="desc">Contactless clinical thermometer with 1-second response time.</p>
+                            <div class="card-actions">
+                                <span class="badge-outline" data-i18n="products_medical">Medical Technologies</span>
+                                <button class="btn-icon" title="View Details"><i class="ph ph-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="original.png" alt="Medicore Logo" class="logo-img">
+                </a>
+                <p>Supplying excellence in healthcare technology since 2010.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-facebook-logo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2024 Medicore Supplier Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="product-manager.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize language and translation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            translatePage();
+
+            // Setup language toggle
+            const langToggle = document.getElementById('lang-toggle');
+            if (langToggle) {
+                langToggle.addEventListener('click', toggleLanguage);
+            }
+        });
+    </script>
+</body>
+
+</html>

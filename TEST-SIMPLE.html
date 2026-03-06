@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Test - Showcase Cards Visible</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .featured-showcase {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(168, 85, 247, 0.08), rgba(244, 63, 94, 0.08));
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .showcase-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .large-card {
+            grid-column: span 2;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .small-card {
+            grid-column: span 1;
+            min-height: 165px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .showcase-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .showcase-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .showcase-image img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0ea5e9, #f43f5e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content h4 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .large-card,
+            .small-card {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background: #0ea5e9; color: white; padding: 2rem; text-align: center;">
+        <h1>🎯 DIRECT TEST - Cards Should Be Visible</h1>
+        <p>Scroll down to see the 4 cards</p>
+    </div>
+
+    <section class="featured-showcase">
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-card large-card">
+                    <h3 class="showcase-title">AI-POWERED<br>DIAGNOSTIC HUB</h3>
+                    <div class="showcase-image">
+                        <img src="./Assets/diagnostic-hub.png" alt="AI Diagnostic Hub">
+                    </div>
+                </div>
+
+                <div class="showcase-card large-card">
+                    <h3 class="showcase-title">PORTABLE<br>ULTRASOUND<br>SCANNER</h3>
+                    <div class="showcase-image">
+                        <img src="./Assets/ultrasound.png" alt="Ultrasound">
+                    </div>
+                </div>
+
+                <div class="showcase-card small-card">
+                    <div class="feature-icon">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>98%</h4>
+                        <p>ACCURACY</p>
+                    </div>
+                </div>
+
+                <div class="showcase-card small-card">
+                    <div class="feature-icon">
+                        <i class="ph-fill ph-globe-hemisphere-west"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>GLOBAL</h4>
+                        <p>SHIPPING</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: #22c55e; color: white; padding: 2rem; text-align: center;">
+        <h2>✅ If you can see 4 cards above, it's working!</h2>
+        <p>2 large cards with product images and 2 small cards with icons</p>
+    </div>
+</body>
+
+</html>

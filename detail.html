@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Medicore</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .detail-page {
+            padding-top: 120px;
+            padding-bottom: 4rem;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .product-image-large {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .product-image-large img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .product-image-large i {
+            font-size: 10rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .product-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .price-box {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .specs-table td {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: var(--text-secondary);
+            width: 40%;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .detail-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="original.png" alt="Medicore Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#products">Products</a>
+                <a href="index.html#solutions">Solutions</a>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html#contact" class="btn btn-primary">Request Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="detail-page">
+        <div class="container">
+            <a href="index.html#products"
+                style="display:inline-flex; align-items:center; gap:0.5rem; margin-bottom: 2rem; color: var(--text-secondary); font-weight: 500;">
+                <i class="ph ph-arrow-left"></i> Back to Catalog
+            </a>
+
+            <div id="loading" style="text-align:center; padding: 4rem;">
+                <i class="ph ph-circle-notch"
+                    style="animation: spin 1s linear infinite; font-size: 2rem; color: var(--primary);"></i>
+                <p>Loading details...</p>
+            </div>
+
+            <div id="detail-content" class="detail-layout" style="display:none;">
+                <div class="product-image-large" id="p-img-container">
+                    <!-- filled by js -->
+                </div>
+                <div class="product-info">
+                    <span class="badge" id="p-category">Medical</span>
+                    <h1 id="p-name">Product Name</h1>
+                    <span class="subtitle" id="p-model">Model: XYZ</span>
+
+                    <div class="price-box" id="p-price">$0.00</div>
+
+                    <p id="p-desc" style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Description goes here.
+                    </p>
+
+                    <h3>Specifications</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td>Availability</td>
+                            <td id="p-stock" style="color: var(--success); font-weight: 600;">In Stock</td>
+                        </tr>
+                        <tr>
+                            <td>Warranty</td>
+                            <td>2 Years Standard</td>
+                        </tr>
+                        <tr>
+                            <td>Shipping</td>
+                            <td>International</td>
+                        </tr>
+                    </table>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary">
+                            <i class="ph ph-chat-circle-text" style="margin-right:0.5rem;"></i> Inquire Now
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="ph ph-file-pdf" style="margin-right:0.5rem;"></i> Download Brochure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Medicore Supplier Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            if (!id) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                const res = await fetch(`http://localhost:3001/api/products/${id}`);
+                const json = await res.json();
+
+                if (json.data) {
+                    const p = json.data;
+                    document.getElementById('p-name').textContent = p.name;
+                    document.getElementById('p-model').textContent = p.model ? `Model: ${p.model}` : '';
+                    document.getElementById('p-desc').textContent = p.description;
+                    document.getElementById('p-category').textContent = p.category.toUpperCase();
+                    if (p.price) {
+                        document.getElementById('p-price').textContent = '$' + p.price.toLocaleString();
+                    }
+
+                    const imgContainer = document.getElementById('p-img-container');
+                    if (p.image && p.image.length > 5) {
+                        imgContainer.innerHTML = `<img src="${p.image}" alt="${p.name}">`;
+                    } else {
+                        imgContainer.innerHTML = `<i class="ph-duotone ph-package"></i>`;
+                    }
+
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('detail-content').style.display = 'grid';
+                } else {
+                    document.getElementById('loading').innerHTML = 'Product not found.';
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading').innerHTML = 'Error loading product. Ensure server is running.';
+            }
+        });
+    </script>
+</body>
+
+</html>

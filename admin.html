@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Cabinet | Medicore</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --surface: #ffffff;
+            --background: #f8fafc;
+            --text-main: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 260px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 3rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: #e0f2fe;
+            color: var(--primary-dark);
+        }
+
+        .nav-item i {
+            font-size: 1.25rem;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: #e0f2fe;
+            color: var(--primary);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-info h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .stat-info p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Table Area */
+        .table-container {
+            background: var(--surface);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .product-cell {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .product-thumb {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            padding: 2px;
+        }
+
+        .product-cell {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Fixed Image Class in Table */
+        table img {
+            max-width: 50px;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .active-badge {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .action-btn:hover {
+            color: var(--primary);
+        }
+
+        .delete-btn:hover {
+            color: var(--danger);
+        }
+
+        /* Language Tabs */
+        .lang-tab {
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .lang-tab:hover {
+            background: var(--surface-hover);
+        }
+
+        .lang-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 500px;
+            max-width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Login Screen */
+        #loginScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #loginScreen.hidden {
+            display: none;
+        }
+
+        .login-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header .brand-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .login-header h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 2.4rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .login-btn {
+            padding: 0.875rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .login-error {
+            display: none;
+            padding: 0.75rem 1rem;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            border-radius: 0.5rem;
+            color: #991b1b;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .login-error.show {
+            display: block;
+        }
+
+        #adminContent {
+            display: none;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #adminContent.authenticated {
+            display: flex;
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--danger);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .logout-btn:hover {
+            background: #fee2e2;
+        }
+
+        .logout-btn i {
+            font-size: 1.25rem;
+        }
+    </style>
+    <style>
+        /* Modal Tabs */
+        .modal-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .modal-tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .modal-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .modal-tab-content {
+            display: none;
+        }
+
+        .modal-tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Screen -->
+    <div id="loginScreen">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="brand-icon">
+                    <i class="ph-fill ph-first-aid"></i>
+                </div>
+                <h2>Admin Login</h2>
+                <p>Enter your credentials to access the admin panel</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="login-error" id="loginError">
+                    Invalid username or password
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required autocomplete="username">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required
+                        autocomplete="current-password">
+                    <i class="ph ph-eye password-toggle" id="passwordToggle"></i>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="ph ph-sign-in"></i>
+                    Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Content (Hidden until authenticated) -->
+    <div id="adminContent">
+
+        <aside>
+            <div class="brand">
+                <i class="ph-fill ph-first-aid"></i> Medicore Admin
+            </div>
+            <nav>
+                <a href="#" class="nav-item active" onclick="switchTab('products', this)"><i
+                        class="ph ph-squares-four"></i>
+                    Dashboard</a>
+                <a href="#" class="nav-item" onclick="switchTab('customers', this)"><i class="ph ph-users"></i>
+                    Customers</a>
+                <a href="#" class="nav-item" onclick="switchTab('analytics', this)"><i class="ph ph-chart-line-up"></i>
+                    Analytics</a>
+                <a href="#" class="nav-item" onclick="switchTab('news', this)"><i class="ph ph-newspaper"></i>
+                    News & Blog</a>
+                <a href="#" class="nav-item" onclick="switchTab('banners', this)"><i class="ph ph-image"></i>
+                    Banners</a>
+                <a href="#" class="nav-item" onclick="switchTab('content', this)"><i class="ph ph-article"></i>
+                    Page Content</a>
+                <a href="index.html" class="nav-item"><i class="ph ph-arrow-left"></i> Back to
+                    Site</a>
+                <button class="logout-btn" onclick="logout()"><i class="ph ph-sign-out"></i> Logout</button>
+            </nav>
+        </aside>
+
+        <main>
+            <!-- PRODUCTS SECTION -->
+            <section id="products-section" class="tab-content">
+                <header>
+                    <div>
+                        <h1>Product Cabinet</h1>
+                        <p style="color: var(--text-light); margin-top: 0.25rem;">Manage your catalog inventory</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal()">
+                        <i class="ph ph-plus"></i> Add Product
+                    </button>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="ph ph-package"></i></div>
+                        <div class="stat-info">
+                            <h3>24</h3>
+                            <p>Total Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #fce7f3; color: #db2777;"><i
+                                class="ph ph-warning-circle"></i></div>
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>Low Stock</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #dcfce7; color: #166534;"><i
+                                class="ph ph-check-circle"></i></div>
+                        <div class="stat-info">
+                            <h3>Active</h3>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Model</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list">
+                            <!-- JS Will Populate This -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- CUSTOMERS SECTION -->
+            <section id="customers-section" class="tab-content" style="display: none;">
+                <header>
+                    <div>
+                        <h1>Customer Management</h1>
+                        <p style="color: var(--text-light);">View and manage client accounts</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="alert('Export feature coming soon')">
+                        <i class="ph ph-download-simple"></i> Export CSV
+                    </button>
+                </header>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Client Name</th>
+                                <th>Institution</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <div class="product-img" style="background: #e0e7ff; color: #4338ca;"><i
+                                                class="ph ph-user"></i></div>
+                                        <strong>Dr. Sarah Smith</strong>
+                                    </div>
+                                </td>
+                                <td>City General Hospital</td>
+                                <td>sarah.s@citygeneral.com</td>
+                                <td><span class="status-badge active-badge">Verified</span></td>
+                                <td>
+                                    <button class="action-btn"><i class="ph ph-dots-three"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="product-cell">
+                                        <div class="product-img" style="background: #e0e7ff; color: #4338ca;"><i
+                                                class="ph ph-user"></i></div>
+                                        <strong>James Wilson</strong>
+                                    </div>
+                                </td>
+                                <td>MedTech Clinics</td>
+                                <td>j.wilson@medtech.org</td>
+                                <td><span class="status-badge"
+                                        style="background: #fef9c3; color: #854d0e;">Pending</span>
+                                </td>
+                                <td>
+                                    <button class="action-btn"><i class="ph ph-dots-three"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ANALYTICS SECTION -->
+            <section id="analytics-section" class="tab-content" style="display: none;">
+                <header>
+                    <div>
+                        <h1>Performance Analytics</h1>
+                        <p style="color: var(--text-light);">Overview of catalog performance</p>
+                    </div>
+                </header>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #e0e7ff; color: #4f46e5;"><i
+                                class="ph ph-trend-up"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>+24%</h3>
+                            <p>Monthly Growth</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #ecfccb; color: #4d7c0f;"><i
+                                class="ph ph-users-three"></i></div>
+                        <div class="stat-info">
+                            <h3>1.2k</h3>
+                            <p>Active Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #ffedd5; color: #c2410c;"><i class="ph ph-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>45k</h3>
+                            <p>Page Views</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Simple CSS Bar Chart Visualization -->
+                <div class="table-container" style="padding: 2rem;">
+                    <h3 style="margin-bottom: 2rem;">Traffic Source</h3>
+                    <div
+                        style="display: flex; align-items: flex-end; gap: 2rem; height: 300px; border-bottom: 2px solid var(--border); padding-bottom: 1rem;">
+                        <div
+                            style="flex: 1; background: var(--primary); height: 60%; border-radius: 8px 8px 0 0; position: relative;">
+                            <span
+                                style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Direct</span>
+                        </div>
+                        <div
+                            style="flex: 1; background: var(--primary); height: 85%; opacity: 0.8; border-radius: 8px 8px 0 0; position: relative;">
+                            <span
+                                style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Social</span>
+                        </div>
+                        <div
+                            style="flex: 1; background: var(--primary); height: 40%; opacity: 0.6; border-radius: 8px 8px 0 0; position: relative;">
+                            <span
+                                style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Organic</span>
+                        </div>
+                        <div
+                            style="flex: 1; background: var(--primary); height: 25%; opacity: 0.4; border-radius: 8px 8px 0 0; position: relative;">
+                            <span
+                                style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">Referral</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- NEWS SECTION -->
+            <section id="news-section" class="tab-content" style="display: none;">
+                <header>
+                    <div>
+                        <h1>News Management</h1>
+                        <p style="color: var(--text-light);">Manage news articles and blog posts</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openNewsModal()">
+                        <i class="ph ph-plus"></i> Add News
+                    </button>
+                </header>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="news-list">
+                            <!-- JS Will Populate This -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- BANNERS SECTION -->
+            <section id="banners-section" class="tab-content" style="display: none;">
+                <header>
+                    <div>
+                        <h1>Banner Management</h1>
+                        <p style="color: var(--text-light);">Manage homepage hero rotation</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openBannerModal()">
+                        <i class="ph ph-plus"></i> Add Banner
+                    </button>
+                </header>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Preview</th>
+                                <th>Title</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="banner-list">
+                            <!-- JS Will Populate This -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- CONTENT SECTION -->
+            <section id="content-section" class="tab-content" style="display: none;">
+                <header>
+                    <div>
+                        <h1>Page Content</h1>
+                        <p style="color: var(--text-light);">Edit text for static pages</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="saveContent()">
+                        <i class="ph ph-floppy-disk"></i> Save Changes
+                    </button>
+                </header>
+
+                <div class="table-container" style="padding: 2rem;">
+                    <div class="form-group">
+                        <label>About Us - Title</label>
+                        <input type="text" id="content_about_title">
+                    </div>
+                    <div class="form-group">
+                        <label>About Us - Description</label>
+                        <textarea id="content_about_desc" rows="5"></textarea>
+                    </div>
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">Featured Showcase Products</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>Card 1 Product</label>
+                            <select id="content_showcase_1"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Card 2 Product</label>
+                            <select id="content_showcase_2"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Card 3 Product</label>
+                            <select id="content_showcase_3"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Card 4 Product</label>
+                            <select id="content_showcase_4"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem;"></select>
+                        </div>
+                    </div>
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+                    <div class="form-group">
+                        <label>Contact - Phone</label>
+                        <input type="text" id="content_contact_phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact - Email</label>
+                        <input type="text" id="content_contact_email">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact - Address</label>
+                        <input type="text" id="content_contact_address">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Add Product Modal -->
+        <div class="modal" id="productModal">
+            <div class="modal-content" style="max-width: 800px;">
+                <div class="modal-header">
+                    <h3 id="modal-title">Add New Product</h3>
+                    <button class="action-btn" onclick="closeModal()"><i class="ph ph-x"
+                            style="font-size: 1.5rem;"></i></button>
+                </div>
+
+                <div class="modal-tabs">
+                    <button class="modal-tab-btn active" onclick="switchModalTab('basic')">Basic Info</button>
+                    <button class="modal-tab-btn" onclick="switchModalTab('details')">Detailed Info</button>
+                    <button class="modal-tab-btn" onclick="switchModalTab('features')">Features</button>
+                    <button class="modal-tab-btn" onclick="switchModalTab('specs')">Specifications</button>
+                </div>
+
+                <form id="addProductForm">
+                    <!-- BASIC INFO TAB -->
+                    <div id="modal-tab-basic" class="modal-tab-content active">
+                        <div class="form-group">
+                            <label>Product Name (Multi-Language)</label>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <button type="button" class="lang-tab active" data-lang="en"
+                                    onclick="switchLangTab(event, 'en')">EN</button>
+                                <button type="button" class="lang-tab" data-lang="ru"
+                                    onclick="switchLangTab(event, 'ru')">RU</button>
+                                <button type="button" class="lang-tab" data-lang="uz"
+                                    onclick="switchLangTab(event, 'uz')">UZ</button>
+                            </div>
+                            <input type="text" id="nameInput_en" class="lang-input" data-lang="en"
+                                placeholder="e.g. MRI Scanner" required>
+                            <input type="text" id="nameInput_ru" class="lang-input" data-lang="ru"
+                                placeholder="например МРТ Сканер" style="display:none;">
+                            <input type="text" id="nameInput_uz" class="lang-input" data-lang="uz"
+                                placeholder="masalan MRI Skaneri" style="display:none;">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Model Number</label>
+                                <input type="text" id="modelInput" placeholder="e.g. MX-200" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select id="categoryInput">
+                                    <option>Medical Technologies</option>
+                                    <option>Stomatology Solutions</option>
+                                    <option>Surgery Technologies</option>
+                                    <option>Laboratory Equipment</option>
+                                    <option>Other Equipment</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label>Price ($)</label>
+                                <input type="text" id="priceInput" placeholder="e.g. 25000">
+                            </div>
+                            <div class="form-group">
+                                <label>Stock Status</label>
+                                <select id="stockInput">
+                                    <option value="In Stock">In Stock</option>
+                                    <option value="Low Stock">Low Stock</option>
+                                    <option value="Out of Stock">Out of Stock</option>
+                                    <option value="Pre-Order">Pre-Order</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group"
+                            style="display:flex; align-items:center; gap:0.5rem; margin-top:-0.5rem; margin-bottom:1rem;">
+                            <input type="checkbox" id="isNewInput" style="width:auto; transform:scale(1.2);">
+                            <label for="isNewInput"
+                                style="margin:0; font-weight:600; cursor:pointer; user-select:none;">Mark as New
+                                Arrival</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" id="imageInput" accept="image/*" style="padding: 0.5rem;">
+                            <input type="hidden" id="existingImage">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Short Description (Card View)</label>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <button type="button" class="lang-tab active" data-lang="en"
+                                    onclick="switchLangTab(event, 'en')">EN</button>
+                                <button type="button" class="lang-tab" data-lang="ru"
+                                    onclick="switchLangTab(event, 'ru')">RU</button>
+                                <button type="button" class="lang-tab" data-lang="uz"
+                                    onclick="switchLangTab(event, 'uz')">UZ</button>
+                            </div>
+                            <textarea id="descInput_en" class="lang-input" data-lang="en" rows="3"
+                                placeholder="Brief product description for the card view..."></textarea>
+                            <textarea id="descInput_ru" class="lang-input" data-lang="ru" rows="3"
+                                placeholder="Краткое описание для карточки..." style="display:none;"></textarea>
+                            <textarea id="descInput_uz" class="lang-input" data-lang="uz" rows="3"
+                                placeholder="Karta ko'rinishi uchun qisqacha tavsif..."
+                                style="display:none;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- DETAILED INFO TAB -->
+                    <div id="modal-tab-details" class="modal-tab-content">
+                        <div class="form-group">
+                            <label>Detailed Description (Product Page)</label>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <button type="button" class="lang-tab active" data-lang="en"
+                                    onclick="switchLangTab(event, 'en')">EN</button>
+                                <button type="button" class="lang-tab" data-lang="ru"
+                                    onclick="switchLangTab(event, 'ru')">RU</button>
+                                <button type="button" class="lang-tab" data-lang="uz"
+                                    onclick="switchLangTab(event, 'uz')">UZ</button>
+                            </div>
+                            <textarea id="detailedInput_en" class="lang-input" data-lang="en" rows="8"
+                                placeholder="Full detailed description appearing in the modal..."></textarea>
+                            <textarea id="detailedInput_ru" class="lang-input" data-lang="ru" rows="8"
+                                placeholder="Полное детальное описание..." style="display:none;"></textarea>
+                            <textarea id="detailedInput_uz" class="lang-input" data-lang="uz" rows="8"
+                                placeholder="To'liq batafsil tavsif..." style="display:none;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- FEATURES TAB -->
+                    <div id="modal-tab-features" class="modal-tab-content">
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">Enter one feature per line (e.g.
+                            "• High Precision Sensor")</p>
+                        <div class="form-group">
+                            <label>Features</label>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <button type="button" class="lang-tab active" data-lang="en"
+                                    onclick="switchLangTab(event, 'en')">EN</button>
+                                <button type="button" class="lang-tab" data-lang="ru"
+                                    onclick="switchLangTab(event, 'ru')">RU</button>
+                                <button type="button" class="lang-tab" data-lang="uz"
+                                    onclick="switchLangTab(event, 'uz')">UZ</button>
+                            </div>
+                            <textarea id="featuresInput_en" class="lang-input" data-lang="en" rows="8"
+                                placeholder="High Resolution&#10;Wireless Connectivity&#10;Battery Operated"></textarea>
+                            <textarea id="featuresInput_ru" class="lang-input" data-lang="ru" rows="8"
+                                placeholder="Высокое разрешение&#10;Беспроводная связь&#10;Работа от батареи"
+                                style="display:none;"></textarea>
+                            <textarea id="featuresInput_uz" class="lang-input" data-lang="uz" rows="8"
+                                placeholder="Yuqori aniqlik&#10;Simsiz ulanish&#10;Batareyada ishlash"
+                                style="display:none;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- SPECS TAB -->
+                    <div id="modal-tab-specs" class="modal-tab-content">
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">Enter specifications as
+                            <strong>Key: Value</strong> one per line
+                        </p>
+                        <div class="form-group">
+                            <label>Technical Specifications</label>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <button type="button" class="lang-tab active" data-lang="en"
+                                    onclick="switchLangTab(event, 'en')">EN</button>
+                                <button type="button" class="lang-tab" data-lang="ru"
+                                    onclick="switchLangTab(event, 'ru')">RU</button>
+                                <button type="button" class="lang-tab" data-lang="uz"
+                                    onclick="switchLangTab(event, 'uz')">UZ</button>
+                            </div>
+                            <textarea id="specsInput_en" class="lang-input" data-lang="en" rows="8"
+                                placeholder="Power: 220V&#10;Weight: 50kg&#10;Dimensions: 100x50x50cm"></textarea>
+                            <textarea id="specsInput_ru" class="lang-input" data-lang="ru" rows="8"
+                                placeholder="Мощность: 220В&#10;Вес: 50кг&#10;Размеры: 100x50x50см"
+                                style="display:none;"></textarea>
+                            <textarea id="specsInput_uz" class="lang-input" data-lang="uz" rows="8"
+                                placeholder="Quvvat: 220V&#10;Og'irlik: 50kg&#10;O'lchamlar: 100x50x50sm"
+                                style="display:none;"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn"
+                            style="background: transparent; border: 1px solid var(--border);"
+                            onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add News Modal -->
+        <div class="modal" id="newsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="news-modal-title">Add News Item</h3>
+                    <button class="action-btn" onclick="closeNewsModal()"><i class="ph ph-x"
+                            style="font-size: 1.5rem;"></i></button>
+                </div>
+                <form id="addNewsForm">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="newsTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="newsDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Cover Image</label>
+                        <input type="file" id="newsImage" accept="image/*" style="padding: 0.5rem;">
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea id="newsContent" rows="5" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeNewsModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save News</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add Banner Modal -->
+        <div class="modal" id="bannerModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="banner-modal-title">Add Homepage Banner</h3>
+                    <button class="action-btn" onclick="closeBannerModal()"><i class="ph ph-x"
+                            style="font-size: 1.5rem;"></i></button>
+                </div>
+                <form id="addBannerForm">
+                    <div class="form-group">
+                        <label>Title (Optional)</label>
+                        <input type="text" id="bannerTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Subtitle (Optional)</label>
+                        <input type="text" id="bannerSubtitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Banner Image</label>
+                        <input type="file" id="bannerImage" accept="image/*" required style="padding: 0.5rem;">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeBannerModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Banner</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // 0. Initial Data - Source of Truth
+            // These will be loaded into LocalStorage on first run
+            const defaultProducts = [
+                { id: 1, name: "Dental Imaging Unit", category: "stomatology", categoryDisplay: "Stomatology Solutions", model: "DENT-X1", status: "Active", image: "", description: "High-precision intraoral X-ray system for stomatology clinics." },
+                { id: 2, name: "Patient Vital Monitor", category: "medical", categoryDisplay: "Medical Technologies", model: "MED-V1", status: "Active", image: "", description: "Advanced patient monitoring system for general medical use." },
+                { id: 3, name: "Laser Surgery System", category: "surgery", categoryDisplay: "Surgery Technologies", model: "SURG-L1", status: "Active", image: "", description: "State-of-the-art laser technology for minimally invasive surgery." },
+                { id: 4, name: "Biochemical Analyzer", category: "laboratory", categoryDisplay: "Laboratory Equipment", model: "LAB-B1", status: "Active", image: "", description: "Fully automated biochemistry analyzer for laboratory diagnostics." },
+                { id: 5, name: "Stomatology Chair", category: "stomatology", categoryDisplay: "Stomatology Solutions", model: "DENT-C1", status: "Active", image: "", description: "Ergonomic dental chair with integrated delivery system." },
+                { id: 6, name: "Ultra-Sound Scanner", category: "medical", categoryDisplay: "Medical Technologies", model: "MED-U1", status: "Active", image: "", description: "Versatile ultrasound imaging for diverse medical applications." }
+            ];
+
+            const defaultNews = [
+                { id: 1, title: "Medicore Expands to Asia", date: "2024-03-15", image: "", content: "We are thrilled to announce our new regional headquarters in Tokyo..." },
+                { id: 2, title: "New MRI Technology Launched", date: "2024-02-20", image: "", content: "Introducing the revolutionary Flux-5000 MRI scanner with AI-assisted diagnostics..." }
+            ];
+
+            const defaultBanners = [
+                { id: 1, title: "Empowering Healthcare with Next-Gen Technology", subtitle: "We are the bridge between world-class medical manufacturers and healthcare providers.", image: "./Assets/Intro.jpg" },
+                { id: 2, title: "Reliable Medical Supply Chain", subtitle: "Ensuring timely delivery of critical equipment worldwide.", image: "./Assets/intro 2.jpg" }
+            ];
+
+            const defaultContent = {
+                about: { title: "About Us", desc: "We are a leading provider of medical technology solutions..." },
+                contact: { phone: "+1 (555) 123-4567", email: "info@medicore.com", address: "123 Medical Drive, Tech City" }
+            };
+
+            // 1. Initialization Logic
+            function initStorage() {
+                if (!localStorage.getItem('medico_products')) localStorage.setItem('medico_products', JSON.stringify(defaultProducts));
+                if (!localStorage.getItem('medico_news')) localStorage.setItem('medico_news', JSON.stringify(defaultNews));
+                if (!localStorage.getItem('medico_banners')) localStorage.setItem('medico_banners', JSON.stringify(defaultBanners));
+                if (!localStorage.getItem('medico_content')) localStorage.setItem('medico_content', JSON.stringify(defaultContent));
+            }
+
+            // 2. Tab Switching Logic
+            function switchTab(tabId, link) {
+                document.querySelectorAll('.tab-content').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.getElementById(`${tabId}-section`).style.display = 'block';
+                link.classList.add('active');
+            }
+
+            // 3. Modal Logic
+            // Modal Tab Switching
+            function switchModalTab(tabName) {
+                // Update buttons
+                document.querySelectorAll('.modal-tab-btn').forEach(btn => btn.classList.remove('active'));
+                event.target.classList.add('active');
+
+                // Update content
+                document.querySelectorAll('.modal-tab-content').forEach(content => content.classList.remove('active'));
+                document.getElementById(`modal-tab-${tabName}`).classList.add('active');
+            }
+
+            // Language Tab Switching for Modal
+            function switchLangTab(event, lang) {
+                // Update tabs in the specific group
+                const container = event.target.parentElement;
+                container.querySelectorAll('.lang-tab').forEach(tab => tab.classList.remove('active'));
+                event.target.classList.add('active');
+
+                // Find the nearest common ancestor (like .form-group or the tab-content) or search strictly within the current context
+                // A better approach: Find inputs that belong to this "section" or "group"
+                // Assuming tabs are sibling to inputs or wrapper
+
+                // Let's go up to the container and find inputs with data-lang inside it
+                const group = container.parentElement;
+                group.querySelectorAll('.lang-input').forEach(input => {
+                    if (input.dataset.lang === lang) {
+                        input.style.display = 'block';
+                    } else {
+                        input.style.display = 'none';
+                    }
+                });
+            }
+
+            function closeModal() {
+                document.getElementById('productModal').classList.remove('open');
+            }
+
+            // 3. Modal Logic
+            let editingProductIndex = null;
+
+            function openModal(mode = 'add', productIndex = null) {
+                const modal = document.getElementById('productModal');
+                const title = document.getElementById('modal-title');
+                const form = document.getElementById('addProductForm');
+
+                // Reset tabs to Basic
+                if (document.querySelector('.modal-tab-btn')) document.querySelector('.modal-tab-btn').click();
+
+                if (mode === 'edit' && productIndex !== null) {
+                    editingProductIndex = productIndex;
+                    title.textContent = 'Edit Product';
+
+                    // Load product data
+                    const products = JSON.parse(localStorage.getItem('medico_products') || '[]');
+                    const product = products[productIndex];
+
+                    if (product) {
+                        // Basic Info
+                        document.getElementById('nameInput_en').value = product.name_en || (product.name && product.name.en) || '';
+                        document.getElementById('nameInput_ru').value = product.name_ru || (product.name && product.name.ru) || '';
+                        document.getElementById('nameInput_uz').value = product.name_uz || (product.name && product.name.uz) || '';
+
+                        document.getElementById('categoryInput').value = product.categoryDisplay || product.category || 'Medical Technologies';
+                        document.getElementById('modelInput').value = product.model || '';
+                        document.getElementById('priceInput').value = product.price || '';
+                        document.getElementById('stockInput').value = product.stock || 'In Stock';
+
+                        // Descriptions
+                        document.getElementById('descInput_en').value = product.description_en || (product.description && product.description.en) || '';
+                        document.getElementById('descInput_ru').value = product.description_ru || (product.description && product.description.ru) || '';
+                        document.getElementById('descInput_uz').value = product.description_uz || (product.description && product.description.uz) || '';
+
+                        // Detailed Description
+                        document.getElementById('detailedInput_en').value = (product.detailedDescription && product.detailedDescription.en) || '';
+                        document.getElementById('detailedInput_ru').value = (product.detailedDescription && product.detailedDescription.ru) || '';
+                        document.getElementById('detailedInput_uz').value = (product.detailedDescription && product.detailedDescription.uz) || '';
+
+                        // Features (Convert Array to Newline String)
+                        const features = product.features || {};
+                        document.getElementById('featuresInput_en').value = (features.en || []).join('\n');
+                        document.getElementById('featuresInput_ru').value = (features.ru || []).join('\n');
+                        document.getElementById('featuresInput_uz').value = (features.uz || []).join('\n');
+
+                        // Specs (Convert Object to Key:Value String)
+                        const specs = product.specifications || {};
+                        document.getElementById('specsInput_en').value = objToString(specs.en);
+                        document.getElementById('specsInput_ru').value = objToString(specs.ru);
+                        document.getElementById('specsInput_uz').value = objToString(specs.uz);
+                    }
+                } else {
+                    editingProductIndex = null;
+                    title.textContent = 'Add New Product';
+                    form.reset();
+                    // Reset hidden inputs
+                    document.querySelectorAll('.lang-input[data-lang="ru"], .lang-input[data-lang="uz"]').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-input[data-lang="en"]').forEach(el => el.style.display = 'block');
+                    document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.lang-tab[data-lang="en"]').forEach(b => b.classList.add('active'));
+                }
+
+                modal.classList.add('open');
+            }
+
+            function objToString(obj) {
+                if (!obj) return '';
+                return Object.entries(obj).map(([k, v]) => `${k}: ${v}`).join('\n');
+            }
+
+            // PRODUCT MANAGEMENT (LOCAL STORAGE INTEGRATED)
+            // ===================================
+
+            let editingProductId = null;
+
+            async function getAdminProducts() {
+                let baseProducts = [];
+                try {
+                    const res = await fetch('./products-data.json');
+                    if (res.ok) {
+                        baseProducts = await res.json();
+                    }
+                } catch (e) {
+                    console.warn("Could not fetch products-data.json", e);
+                }
+
+                const localProducts = JSON.parse(localStorage.getItem('medico_products') || '[]');
+                let combined = [...baseProducts];
+
+                localProducts.forEach(lp => {
+                    const idx = combined.findIndex(p => p.id == lp.id);
+                    if (idx !== -1) {
+                        combined[idx] = Object.assign({}, combined[idx], lp); // merge edits
+                    } else {
+                        combined.push(lp);
+                    }
+                });
+
+                const deletedProducts = JSON.parse(localStorage.getItem('medico_deleted_products') || '[]');
+                if (deletedProducts.length > 0) {
+                    combined = combined.filter(p => !deletedProducts.includes(p.id.toString()));
+                }
+
+                return combined;
+            }
+
+            async function loadProductForEdit(id) {
+                try {
+                    const products = await getAdminProducts();
+                    const p = products.find(prod => prod.id == id);
+                    if (p) {
+                        editingProductId = p.id;
+
+                        document.getElementById('modal-title').textContent = 'Edit Product';
+                        document.getElementById('productModal').classList.add('open');
+
+                        // Populate Fields
+                        document.getElementById('nameInput_en').value = typeof p.name === 'object' ? p.name.en : p.name;
+                        document.getElementById('nameInput_ru').value = typeof p.name === 'object' && p.name.ru ? p.name.ru : '';
+                        document.getElementById('nameInput_uz').value = typeof p.name === 'object' && p.name.uz ? p.name.uz : '';
+
+                        const categoryMapCheck = {
+                            'medical': 'Medical Technologies',
+                            'stomatology': 'Stomatology Solutions',
+                            'surgery': 'Surgery Technologies',
+                            'laboratory': 'Laboratory Equipment',
+                            'other': 'Other Equipment'
+                        };
+                        document.getElementById('categoryInput').value = categoryMapCheck[p.category] || 'Other Equipment';
+
+                        document.getElementById('modelInput').value = p.model || '';
+                        document.getElementById('priceInput').value = p.price || '';
+                        document.getElementById('descInput_en').value = typeof p.description === 'object' ? p.description.en : (p.description || '');
+                        document.getElementById('descInput_ru').value = typeof p.description === 'object' && p.description.ru ? p.description.ru : '';
+                        document.getElementById('descInput_uz').value = typeof p.description === 'object' && p.description.uz ? p.description.uz : '';
+                        document.getElementById('isNewInput').checked = (p.is_new == 1 || p.isNew == true);
+
+                        document.getElementById('detailedInput_en').value = (p.detailedDescription && p.detailedDescription.en) || '';
+                        document.getElementById('detailedInput_ru').value = (p.detailedDescription && p.detailedDescription.ru) || '';
+                        document.getElementById('detailedInput_uz').value = (p.detailedDescription && p.detailedDescription.uz) || '';
+
+                        document.getElementById('featuresInput_en').value = ((p.features && p.features.en) || []).join('\n');
+                        document.getElementById('featuresInput_ru').value = ((p.features && p.features.ru) || []).join('\n');
+                        document.getElementById('featuresInput_uz').value = ((p.features && p.features.uz) || []).join('\n');
+
+                        document.getElementById('specsInput_en').value = objToString(p.specifications && p.specifications.en);
+                        document.getElementById('specsInput_ru').value = objToString(p.specifications && p.specifications.ru);
+                        document.getElementById('specsInput_uz').value = objToString(p.specifications && p.specifications.uz);
+                    }
+                } catch (e) {
+                    console.error(e);
+                    alert('Error loading product details');
+                }
+            }
+
+            function closeModal() {
+                document.getElementById('productModal').classList.remove('open');
+                editingProductId = null;
+                document.getElementById('addProductForm').reset();
+                document.getElementById('isNewInput').checked = false;
+                document.getElementById('modal-title').textContent = 'Add New Product';
+            }
+
+            async function renderProductTable() {
+                const list = document.getElementById('product-list');
+                if (!list) return;
+                list.innerHTML = '<tr><td colspan="6" style="text-align:center;">Loading...</td></tr>';
+
+                try {
+                    const products = await getAdminProducts();
+
+                    if (products && products.length > 0) {
+                        list.innerHTML = '';
+                        products.forEach((p) => {
+                            const nameText = typeof p.name === 'object' ? p.name.en : p.name;
+                            const row = document.createElement('tr');
+                            const imgHtml = p.image && p.image.length > 5
+                                ? `<img src="${p.image}" class="product-thumb" alt="${nameText}">`
+                                : `<div class="product-thumb"><i class="ph ph-package" style="font-size:1.5rem;"></i></div>`;
+
+                            row.innerHTML = `
+                                <td>${imgHtml}</td>
+                                <td>
+                                    <strong>${nameText}</strong><br>
+                                    <small class="text-xs" style="color:var(--text-light);">${p.model || ''}</small>
+                                </td>
+                                <td>
+                                    <span class="badge badge-success">${p.category}</span>
+                                    ${(p.is_new == 1 || p.isNew == true) ? '<span class="badge badge-primary" style="background:#0ea5e9;color:white;margin-left:5px;">NEW</span>' : ''}
+                                </td>
+                                <td>${p.price > 0 ? '$' + p.price.toLocaleString() : '-'}</td>
+                                <td><span class="status-indicator status-active">In Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn edit-btn" onclick="loadProductForEdit('${p.id}')"><i class="ph ph-pencil-simple"></i></button>
+                                        <button class="action-btn delete-btn" onclick="deleteProduct('${p.id}')"><i class="ph ph-trash"></i></button>
+                                    </div>
+                                </td>
+                            `;
+                            list.appendChild(row);
+                        });
+                    } else {
+                        list.innerHTML = '<tr><td colspan="6" style="text-align:center;">No products found.</td></tr>';
+                    }
+                } catch (e) {
+                    console.error(e);
+                    list.innerHTML = '<tr><td colspan="6" style="text-align:center; color:red;">Error loading products. Check local storage.</td></tr>';
+                }
+            }
+
+            async function deleteProduct(id) {
+                if (!confirm('Are you sure you want to delete this product?')) return;
+                try {
+                    let products = JSON.parse(localStorage.getItem('medico_products') || '[]');
+                    products = products.filter(p => p.id != id);
+                    localStorage.setItem('medico_products', JSON.stringify(products));
+
+                    let deletedProducts = JSON.parse(localStorage.getItem('medico_deleted_products') || '[]');
+                    if (!deletedProducts.includes(id.toString())) {
+                        deletedProducts.push(id.toString());
+                        localStorage.setItem('medico_deleted_products', JSON.stringify(deletedProducts));
+                    }
+
+                    renderProductTable();
+                } catch (e) {
+                    alert('Error deleting product');
+                }
+            }
+
+            // Add/Edit Product Logic
+            document.getElementById('addProductForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Basic
+                const name_en = document.getElementById('nameInput_en').value;
+                const name_ru = document.getElementById('nameInput_ru').value;
+                const name_uz = document.getElementById('nameInput_uz').value;
+                const categoryText = document.getElementById('categoryInput').value;
+                const model = document.getElementById('modelInput').value;
+                const price = document.getElementById('priceInput').value;
+                const fileInput = document.getElementById('imageInput');
+                const desc_en = document.getElementById('descInput_en').value;
+                const desc_ru = document.getElementById('descInput_ru').value;
+                const desc_uz = document.getElementById('descInput_uz').value;
+
+                const detailed_en = document.getElementById('detailedInput_en').value;
+                const detailed_ru = document.getElementById('detailedInput_ru').value;
+                const detailed_uz = document.getElementById('detailedInput_uz').value;
+
+                const features_en = parseLines(document.getElementById('featuresInput_en').value);
+                const features_ru = parseLines(document.getElementById('featuresInput_ru').value);
+                const features_uz = parseLines(document.getElementById('featuresInput_uz').value);
+
+                const specs_en = parseKeyVal(document.getElementById('specsInput_en').value);
+                const specs_ru = parseKeyVal(document.getElementById('specsInput_ru').value);
+                const specs_uz = parseKeyVal(document.getElementById('specsInput_uz').value);
+
+                const categoryMap = {
+                    'Medical Technologies': 'medical',
+                    'Stomatology Solutions': 'stomatology',
+                    'Surgery Technologies': 'surgery',
+                    'Laboratory Equipment': 'laboratory',
+                    'Other Equipment': 'other'
+                };
+                const categoryVal = categoryMap[categoryText] || 'other';
+
+                const processSave = async (imgSrc) => {
+                    const payload = {
+                        name: { en: name_en, ru: name_ru, uz: name_uz },
+                        category: categoryVal,
+                        model: model,
+                        price: parseFloat(price) || 0,
+                        description: { en: desc_en, ru: desc_ru, uz: desc_uz },
+                        detailedDescription: { en: detailed_en, ru: detailed_ru, uz: detailed_uz },
+                        features: { en: features_en, ru: features_ru, uz: features_uz },
+                        specifications: { en: specs_en, ru: specs_ru, uz: specs_uz },
+                        isNew: document.getElementById('isNewInput').checked,
+                        image: imgSrc || ""
+                    };
+
+                    try {
+                        let products = JSON.parse(localStorage.getItem('medico_products') || '[]');
+
+                        if (editingProductId) {
+                            // UPDATE
+                            payload.id = editingProductId;
+                            const idx = products.findIndex(p => p.id == editingProductId);
+                            if (idx !== -1) {
+                                // keep old image if not uploading a new one
+                                if (!imgSrc) payload.image = products[idx].image;
+                                products[idx] = { ...products[idx], ...payload };
+                            } else {
+                                // Edits on a product that came from JSON originally
+                                products.push(payload);
+                            }
+                        } else {
+                            // CREATE
+                            payload.id = 'prod-' + Date.now();
+                            products.unshift(payload);
+                        }
+
+                        localStorage.setItem('medico_products', JSON.stringify(products));
+
+                        alert(editingProductId ? 'Product updated!' : 'Product added!');
+                        closeModal();
+                        renderProductTable();
+                    } catch (e) {
+                        alert('Error saving product');
+                    }
+                };
+
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const img = new Image();
+                        img.onload = function () {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+
+                            // Resize logic (max 800x800)
+                            const MAX_WIDTH = 800;
+                            const MAX_HEIGHT = 800;
+                            let width = img.width;
+                            let height = img.height;
+
+                            if (width > height) {
+                                if (width > MAX_WIDTH) {
+                                    height = (height * MAX_WIDTH) / width;
+                                    width = MAX_WIDTH;
+                                }
+                            } else {
+                                if (height > MAX_HEIGHT) {
+                                    width = (width * MAX_HEIGHT) / height;
+                                    height = MAX_HEIGHT;
+                                }
+                            }
+
+                            canvas.width = width;
+                            canvas.height = height;
+
+                            // 1. Fill background with white (handles transparent PNGs)
+                            ctx.fillStyle = '#FFFFFF';
+                            ctx.fillRect(0, 0, width, height);
+
+                            // 2. Draw image
+                            ctx.drawImage(img, 0, 0, width, height);
+
+                            // 3. Convert to JPEG (strips alpha channel, uses the white background)
+                            const processedDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+                            processSave(processedDataUrl);
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else {
+                    processSave('');
+                }
+            });
+
+            function parseLines(text) {
+                if (!text) return [];
+                return text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            }
+
+            function parseKeyVal(text) {
+                if (!text) return {};
+                const obj = {};
+                text.split('\n').forEach(line => {
+                    const parts = line.split(':');
+                    if (parts.length >= 2) {
+                        const key = parts[0].trim();
+                        const val = parts.slice(1).join(':').trim();
+                        if (key && val) obj[key] = val;
+                    }
+                });
+                return obj;
+            }
+
+            window.onclick = function (event) {
+                const modal = document.getElementById('productModal');
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+
+            // Init
+            document.addEventListener('DOMContentLoaded', () => {
+                initStorage();
+                renderProductTable();
+                renderNewsTable();
+                renderBannerTable();
+                loadContent();
+                checkAuth(); // Call checkAuth here
+            });
+
+            // Remove the duplicate checkAuth call from below if it exists or just leave it, but ensure loadContent etc are called.
+            // Actually, replace the previous Init block.
+
+            // ========================================
+            // NEWS MANAGEMENT
+            // ========================================
+            function renderNewsTable() {
+                const list = document.getElementById('news-list');
+                list.innerHTML = '';
+                const news = JSON.parse(localStorage.getItem('medico_news') || '[]');
+                news.forEach((n, index) => {
+                    const row = document.createElement('tr');
+                    const img = n.image ? `<img src="${n.image}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;">` : '<div style="width:50px; height:50px; background:#eee; border-radius:4px;"></div>';
+                    row.innerHTML = `
+                        <td>${img}</td>
+                        <td><strong>${n.title}</strong></td>
+                        <td>${n.date}</td>
+                        <td>
+                            <button class="action-btn delete-btn" onclick="deleteNews(${index})"><i class="ph ph-trash"></i></button>
+                        </td>
+                    `;
+                    list.appendChild(row);
+                });
+            }
+
+            function openNewsModal() { document.getElementById('newsModal').classList.add('open'); }
+            function closeNewsModal() { document.getElementById('newsModal').classList.remove('open'); document.getElementById('addNewsForm').reset(); }
+
+            document.getElementById('addNewsForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const title = document.getElementById('newsTitle').value;
+                const date = document.getElementById('newsDate').value;
+                const content = document.getElementById('newsContent').value;
+                const fileInput = document.getElementById('newsImage');
+
+                const processSave = (imgSrc) => {
+                    const news = JSON.parse(localStorage.getItem('medico_news') || '[]');
+                    news.unshift({ id: Date.now(), title, date, content, image: imgSrc });
+                    localStorage.setItem('medico_news', JSON.stringify(news));
+                    closeNewsModal();
+                    renderNewsTable();
+                };
+
+                if (fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => processSave(e.target.result);
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else {
+                    processSave('');
+                }
+            });
+
+            function deleteNews(index) {
+                if (confirm('Delete this news item?')) {
+                    const news = JSON.parse(localStorage.getItem('medico_news') || '[]');
+                    news.splice(index, 1);
+                    localStorage.setItem('medico_news', JSON.stringify(news));
+                    renderNewsTable();
+                }
+            }
+
+            // ========================================
+            // BANNER MANAGEMENT
+            // ========================================
+            function renderBannerTable() {
+                const list = document.getElementById('banner-list');
+                list.innerHTML = '';
+                const banners = JSON.parse(localStorage.getItem('medico_banners') || '[]');
+                banners.forEach((b, index) => {
+                    const row = document.createElement('tr');
+                    const img = b.image ? `<img src="${b.image}" style="width:100px; height:50px; object-fit:cover; border-radius:4px;">` : 'No Image';
+                    row.innerHTML = `
+                        <td>${img}</td>
+                        <td>
+                            <strong>${b.title || 'Untitled'}</strong><br>
+                            <small>${b.subtitle || ''}</small>
+                        </td>
+                        <td>
+                            <button class="action-btn delete-btn" onclick="deleteBanner(${index})"><i class="ph ph-trash"></i></button>
+                        </td>
+                    `;
+                    list.appendChild(row);
+                });
+            }
+
+            function openBannerModal() { document.getElementById('bannerModal').classList.add('open'); }
+            function closeBannerModal() { document.getElementById('bannerModal').classList.remove('open'); document.getElementById('addBannerForm').reset(); }
+
+            document.getElementById('addBannerForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const title = document.getElementById('bannerTitle').value;
+                const subtitle = document.getElementById('bannerSubtitle').value;
+                const fileInput = document.getElementById('bannerImage');
+
+                if (fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const banners = JSON.parse(localStorage.getItem('medico_banners') || '[]');
+                        banners.push({ id: Date.now(), title, subtitle, image: e.target.result });
+                        localStorage.setItem('medico_banners', JSON.stringify(banners));
+                        closeBannerModal();
+                        renderBannerTable();
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            });
+
+            function deleteBanner(index) {
+                if (confirm('Delete this banner?')) {
+                    const banners = JSON.parse(localStorage.getItem('medico_banners') || '[]');
+                    banners.splice(index, 1);
+                    localStorage.setItem('medico_banners', JSON.stringify(banners));
+                    renderBannerTable();
+                }
+            }
+
+            // ========================================
+            // CONTENT MANAGEMENT
+            // ========================================
+            function loadContent() {
+                const content = JSON.parse(localStorage.getItem('medico_content') || '{}');
+                if (content.about) {
+                    document.getElementById('content_about_title').value = content.about.title || '';
+                    document.getElementById('content_about_desc').value = content.about.desc || '';
+                }
+                if (content.contact) {
+                    document.getElementById('content_contact_phone').value = content.contact.phone || '';
+                    document.getElementById('content_contact_email').value = content.contact.email || '';
+                    document.getElementById('content_contact_address').value = content.contact.address || '';
+                }
+
+                const sc1 = document.getElementById('content_showcase_1');
+                const sc2 = document.getElementById('content_showcase_2');
+                const sc3 = document.getElementById('content_showcase_3');
+                const sc4 = document.getElementById('content_showcase_4');
+                sc1.innerHTML = '<option value="">-- Select Product --</option>';
+                sc2.innerHTML = '<option value="">-- Select Product --</option>';
+                sc3.innerHTML = '<option value="">-- Select Product --</option>';
+                sc4.innerHTML = '<option value="">-- Select Product --</option>';
+
+                getAdminProducts().then(products => {
+                    products.forEach(p => {
+                        const pName = typeof p.name === 'object' ? p.name.en : p.name;
+                        const opt = `<option value="${p.id}">${pName} (${p.model || ''})</option>`;
+                        sc1.innerHTML += opt;
+                        sc2.innerHTML += opt;
+                        sc3.innerHTML += opt;
+                        sc4.innerHTML += opt;
+                    });
+
+                    // backwards compatible: read left/right or 1/2/3/4
+                    const showcaseCfg = JSON.parse(localStorage.getItem('medico_showcase_config') || '{}');
+                    sc1.value = showcaseCfg.card1 || showcaseCfg.left || "";
+                    sc2.value = showcaseCfg.card2 || showcaseCfg.right || "";
+                    sc3.value = showcaseCfg.card3 || "";
+                    sc4.value = showcaseCfg.card4 || "";
+                });
+            }
+
+            function saveContent() {
+                const content = {
+                    about: {
+                        title: document.getElementById('content_about_title').value,
+                        desc: document.getElementById('content_about_desc').value
+                    },
+                    contact: {
+                        phone: document.getElementById('content_contact_phone').value,
+                        email: document.getElementById('content_contact_email').value,
+                        address: document.getElementById('content_contact_address').value
+                    }
+                };
+                localStorage.setItem('medico_content', JSON.stringify(content));
+
+                const showcaseCfg = {
+                    card1: document.getElementById('content_showcase_1').value,
+                    card2: document.getElementById('content_showcase_2').value,
+                    card3: document.getElementById('content_showcase_3').value,
+                    card4: document.getElementById('content_showcase_4').value
+                };
+                localStorage.setItem('medico_showcase_config', JSON.stringify(showcaseCfg));
+
+                alert('Page content saved!');
+            }
+
+            // ========================================
+            // AUTHENTICATION SYSTEM
+            // ========================================
+
+            // Default credentials
+            const ADMIN_USERNAME = 'admin';
+            // SHA-256 hash for 'admin123'
+            const ADMIN_PASSWORD_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9';
+
+            async function hashPassword(password) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(password);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            }
+
+            // Check authentication on page load
+            function checkAuth() {
+                const sessionAuth = sessionStorage.getItem('medico_admin_auth');
+                const persistentAuth = localStorage.getItem('medico_admin_auth');
+
+                if (sessionAuth === 'authenticated' || persistentAuth === 'authenticated') {
+                    showAdminContent();
+                } else {
+                    showLoginScreen();
+                }
+            }
+
+            // Show login screen
+            function showLoginScreen() {
+                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('adminContent').classList.remove('authenticated');
+            }
+
+            // Show admin content
+            function showAdminContent() {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('adminContent').classList.add('authenticated');
+
+                // Initialize Data and UI
+                if (typeof initStorage === 'function') initStorage();
+                if (typeof renderProductTable === 'function') renderProductTable();
+                if (typeof renderNewsTable === 'function') renderNewsTable();
+                if (typeof renderBannerTable === 'function') renderBannerTable();
+                if (typeof loadContent === 'function') loadContent();
+            }
+
+            // Handle login form submission
+            document.getElementById('loginForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
+                const errorDiv = document.getElementById('loginError');
+
+                const pwdHash = await hashPassword(password);
+
+                // Validate credentials
+                if (username === ADMIN_USERNAME && pwdHash === ADMIN_PASSWORD_HASH) {
+                    sessionStorage.setItem('medico_admin_auth', 'authenticated');
+                    if (rememberMe) {
+                        localStorage.setItem('medico_admin_auth', 'authenticated');
+                    }
+                    errorDiv.classList.remove('show');
+                    showAdminContent();
+                    this.reset();
+                } else {
+                    errorDiv.classList.add('show');
+                    const loginContainer = document.querySelector('.login-container');
+                    loginContainer.style.animation = 'shake 0.5s';
+                    setTimeout(() => { loginContainer.style.animation = ''; }, 500);
+                }
+            });
+
+            // Password toggle
+            document.getElementById('passwordToggle').addEventListener('click', function () {
+                const passwordInput = document.getElementById('password');
+                const icon = this;
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('ph-eye');
+                    icon.classList.add('ph-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('ph-eye-slash');
+                    icon.classList.add('ph-eye');
+                }
+            });
+
+            // Logout function
+            function logout() {
+                sessionStorage.removeItem('medico_admin_auth');
+                localStorage.removeItem('medico_admin_auth');
+                showLoginScreen();
+                document.getElementById('loginForm').reset();
+            }
+
+            // Initialize authentication check
+
+
+            // Add shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-10px); }
+                    75% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
+
+    </div> <!-- Close adminContent -->
+</body>
+
+</html>

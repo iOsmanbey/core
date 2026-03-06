@@ -1,0 +1,81 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                   🎨 VISUAL EFFECTS QUICK REFERENCE                   ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ ANIMATION CLASSES (Add to HTML elements)                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ .animate-on-scroll     → Enables scroll-triggered animation         │
+│ .fade-in-up            → Fade in from bottom                         │
+│ .fade-in-left          → Fade in from left                           │
+│ .fade-in-right         → Fade in from right                          │
+│ .scale-in              → Scale up from 90% to 100%                   │
+│ .bounce-in             → Bounce in with elastic effect               │
+│ .shimmer-effect        → Sweeping light effect                       │
+│ .glow-on-hover         → Glowing border on hover                     │
+│ .spotlight             → Mouse-following spotlight                   │
+│ .ripple                → Click ripple effect                         │
+│ .tilt-3d               → 3D tilt on mouse move                       │
+│ .blob-morph            → Organic shape morphing                      │
+│ .gradient-text-animated→ Shifting gradient colors                    │
+│ .pulse-animation       → Gentle pulsing                              │
+│ .rotating-border       → Rotating gradient border on hover           │
+│ .glass-morph           → Frosted glass effect                        │
+│ .neon-glow             → Neon text glow with flicker                 │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ AUTOMATIC EFFECTS (No classes needed)                               │
+├─────────────────────────────────────────────────────────────────────┤
+│ ✓ Cursor glow follows mouse                                         │
+│ ✓ Particles float in hero section                                   │
+│ ✓ Parallax on scroll (floating cards, circles)                      │
+│ ✓ Smooth scroll for anchor links                                    │
+│ ✓ Badge floating animation                                          │
+│ ✓ Button hover expansion                                            │
+│ ✓ Product card 3D tilt                                              │
+│ ✓ News card image zoom                                              │
+│ ✓ Stats counter animation                                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ CUSTOMIZATION TIPS                                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Speed:     Change animation-duration (default: 0.6s)                │
+│ Delay:     Automatic stagger delays (0.1s, 0.2s, 0.3s...)          │
+│ Colors:    Modify CSS variables in :root                            │
+│ Intensity: Adjust transform values in CSS                           │
+│ Particles: Change count in createParticles() function               │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PERFORMANCE NOTES                                                   │
+├─────────────────────────────────────────────────────────────────────┤
+│ ⚡ Uses IntersectionObserver (efficient lazy loading)              │
+│ ⚡ Hardware-accelerated CSS transforms                              │
+│ ⚡ RequestAnimationFrame for smooth 60fps                           │
+│ ⚡ Elements unobserved after animation (memory efficient)           │
+│ ⚡ No external libraries required                                   │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ BROWSER SUPPORT                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│ Chrome/Edge:  ✅ Full support                                       │
+│ Firefox:      ✅ Full support                                       │
+│ Safari:       ✅ Full support (webkit prefixes included)            │
+│ Mobile:       ✅ Responsive & touch-friendly                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ EXAMPLE USAGE                                                       │
+├─────────────────────────────────────────────────────────────────────┤
+│ <div class="product-card animate-on-scroll fade-in-up">             │
+│   <h3 class="gradient-text-animated">Product Name</h3>              │
+│   <button class="btn ripple">Click Me</button>                      │
+│ </div>                                                               │
+└─────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+           Automatically loaded via visual-effects.js
+═══════════════════════════════════════════════════════════════════════

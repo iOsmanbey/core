@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Featured Showcase</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .test-section {
+            background: #f0f0f0;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-section">
+        <h1>Testing Featured Showcase Section</h1>
+        <p>The section below should be visible:</p>
+    </div>
+
+    <!-- Featured Products Showcase Section -->
+    <section class="featured-showcase" style="min-height: 500px;">
+        <div class="container">
+            <div class="showcase-grid">
+                <!-- Product Card 1 -->
+                <div class="showcase-card large-card glass-morph">
+                    <div class="card-glow"></div>
+                    <h3 class="showcase-title">AI-POWERED<br>DIAGNOSTIC HUB</h3>
+                    <div class="showcase-image">
+                        <img src="./Assets/diagnostic-hub.png" alt="AI-Powered Diagnostic Hub">
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="showcase-card large-card glass-morph">
+                    <div class="card-glow"></div>
+                    <h3 class="showcase-title">PORTABLE<br>ULTRASOUND<br>SCANNER</h3>
+                    <div class="showcase-image">
+                        <img src="./Assets/ultrasound.png" alt="Portable Ultrasound">
+                    </div>
+                </div>
+
+                <!-- Feature Card 1 -->
+                <div class="showcase-card small-card glass-morph">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">
+                        <i class="ph-fill ph-shield-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>98%</h4>
+                        <p>ACCURACY</p>
+                    </div>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="showcase-card small-card glass-morph">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">
+                        <i class="ph-fill ph-globe-hemisphere-west"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>GLOBAL</h4>
+                        <p>SHIPPING</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="test-section">
+        <h2>End of Test</h2>
+        <p>If you can see glassmorphism cards above, it's working!</p>
+    </div>
+</body>
+
+</html>
